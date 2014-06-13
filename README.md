@@ -7,13 +7,13 @@ Build script and container for [nsinit](https://github.com/docker/libcontainer/n
 
 ## Usage
 
-To use, just symlink/copy/whatever ./build/nsinit into your $PATH.
+To use, just symlink/copy/whatever `./build/nsinit` into your $PATH.
 
 To build, run `make` and then commit the new nsinit binary.
 
 ## License
 
-The nsinit code is released under the Apache License. See the bundled ./build/LICENSE file for details.
+The nsinit code is released under the Apache License. See the bundled `./build/LICENSE` file for details.
 
 The Dockerfile and Makefile are released under the MIT License. See the bundled LICENSE file for details.
 
