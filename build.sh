@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+set -x
 cd $(dirname $0)
 
 mkdir -p gopath/{src,pkg,bin}
