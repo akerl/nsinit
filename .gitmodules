@@ -1,3 +1,0 @@
-[submodule "libcontainer"]
-	path = libcontainer
-	url = https://github.com/docker/libcontainer
