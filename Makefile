@@ -3,7 +3,7 @@ DIR=$(shell pwd)
 .PHONY : container setup build install local
 
 container:
-	docker build -t nsinit .
+	docker build --no-cache -t nsinit .
 	docker run --rm -t -i -v $(DIR):/opt/nsinit nsinit
 
 setup:
