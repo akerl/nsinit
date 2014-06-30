@@ -4,7 +4,7 @@ DIR=$(shell pwd)
 
 container:
 	docker build -t nsinit .
-	docker run -t -i -v $(DIR):/opt/nsinit nsinit
+	docker run --rm -t -i -v $(DIR):/opt/nsinit nsinit
 
 setup:
 	mkdir -p gopath/{src,pkg,bin}
