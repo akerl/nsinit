@@ -1,22 +1,26 @@
 DIR=$(shell pwd)
 
-.PHONY : container setup build push local
+.PHONY : default build_container manual container build push local
+
+default: container
+
+build_container:
+	docker build --no-cache -t nsinit meta
+
+manual: build_container
+	./meta/launch /bin/bash || true
 
 container:
-	docker build -t nsinit .
-	docker run --rm -t -i -v $$SSH_AUTH_SOCK:/auth.sock -e SSH_AUTH_SOCK=/auth.sock -v $(DIR):/opt/nsinit nsinit
-
-setup:
-	mkdir -p gopath/{src,pkg,bin}
+	./meta/launch
 
 build:
 	GOPATH=$(DIR)/gopath go get -u github.com/docker/libcontainer/nsinit
 	GOPATH=$(DIR)/gopath go install -n github.com/docker/libcontainer/nsinit
+	cp gopath/src/github.com/docker/libcontainer/nsinit ./build/nsinit
 
 push:
-	./push gopath/src/github.com/docker/libcontainer/nsinit
-	cp gopath/src/github.com/docker/libcontainer/LICENSE build/
-	cp gopath/src/github.com/docker/libcontainer/NOTICE build/
+	ssh -oStrictHostKeyChecking=no git@github.com &>/dev/null || true
+	targit -a .github -c -f dock0/nsinit $$(./build/nsinit -v | awk '{print $$NF}') build/nsinit
 
-local: setup build push
+local: build push
 

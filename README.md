@@ -5,11 +5,9 @@ nsinit
 
 Build script and container for [nsinit](https://github.com/docker/libcontainer/tree/master/nsinit). I didn't write nsinit, the fine folks who contribute to the libcontainer project did. I just wrote these couple commands to build nsinit out of their repo for my use.
 
-## Usage
+## To build
 
-To use, just symlink/copy/whatever `./build/nsinit` into your $PATH.
-
-To build, run `make` and then commit the new nsinit binary.
+Run `make`. To start a shell in the build environment for manual actions, run `make manual`.
 
 ## License
 
