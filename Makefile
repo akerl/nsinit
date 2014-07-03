@@ -10,7 +10,7 @@ build_container:
 manual: build_container
 	./meta/launch /bin/bash || true
 
-container:
+container: build_container
 	./meta/launch
 
 build:
