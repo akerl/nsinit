@@ -15,8 +15,7 @@ container: build_container
 
 build:
 	GOPATH=$(DIR)/gopath go get -u github.com/docker/libcontainer/nsinit
-	GOPATH=$(DIR)/gopath go install -n github.com/docker/libcontainer/nsinit
-	cp gopath/src/github.com/docker/libcontainer/nsinit ./build/nsinit
+	GOPATH=$(DIR)/gopath go build -o build/nsinit github.com/docker/libcontainer/nsinit/main
 
 push:
 	ssh -oStrictHostKeyChecking=no git@github.com &>/dev/null || true
