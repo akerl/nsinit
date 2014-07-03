@@ -5,7 +5,7 @@ DIR=$(shell pwd)
 default: container
 
 build_container:
-	docker build --no-cache -t nsinit meta
+	docker build -t nsinit meta
 
 manual: build_container
 	./meta/launch /bin/bash || true
