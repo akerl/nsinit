@@ -19,7 +19,7 @@ build:
 
 push:
 	targit -a .github -c -f dock0/nsinit $$(./build/nsinit -v | awk '{print $$NF}') build/nsinit
-	targit -a .github -c -f dock0/nsinit master build/nsinit
+	targit -a .github -c -f dock0/nsinit latest build/nsinit
 
 local: build push
 
