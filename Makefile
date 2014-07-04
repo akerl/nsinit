@@ -18,7 +18,6 @@ build:
 	GOPATH=$(DIR)/gopath go build -o build/nsinit github.com/docker/libcontainer/nsinit/main
 
 push:
-	ssh -oStrictHostKeyChecking=no git@github.com &>/dev/null || true
 	targit -a .github -c -f dock0/nsinit $$(./build/nsinit -v | awk '{print $$NF}') build/nsinit
 	targit -a .github -c -f dock0/nsinit master build/nsinit
 
