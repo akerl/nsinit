@@ -15,7 +15,7 @@ container: build_container
 
 build:
 	GOPATH=$(DIR)/gopath go get -u github.com/docker/libcontainer/nsinit
-	GOPATH=$(DIR)/gopath go build -o build/nsinit github.com/docker/libcontainer/nsinit/main
+	GOPATH=$(DIR)/gopath go build -o build/nsinit github.com/docker/libcontainer/nsinit
 
 push:
 	targit -a .github -c -f dock0/nsinit $$(./build/nsinit -v | awk '{print $$NF}') build/nsinit
