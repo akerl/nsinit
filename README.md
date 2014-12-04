@@ -1,3 +1,5 @@
+**Inactive:** Now that Docker includes `docker exec`, I'm no longer actively packaging nsinit
+
 nsinit
 =======
 
